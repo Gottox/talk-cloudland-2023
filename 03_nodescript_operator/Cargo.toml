@@ -1,0 +1,18 @@
+[package]
+name = "nodescript-operator"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "1.28.2", features = ["full"] }
+kube = { version = "0.83.0", features = ["client", "runtime", "derive"] }
+k8s-openapi = { version = "0.18.0", features = ["v1_25"] }
+futures = "0.3.28"
+log = "0.4.19"
+pretty_env_logger = "0.5.0"
+serde = { version = "1.0.164", features = ["derive"] }
+schemars = "0.8.12"
+serde_json = "1.0.97"
+serde_yaml = "0.9.21"

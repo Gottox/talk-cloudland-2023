@@ -1,0 +1,7 @@
+apiVersion: aaaaaaah.dev/v1alpha1
+kind: NodeScript
+metadata:
+  name: iptables
+spec:
+  script: |
+    iptables -L
