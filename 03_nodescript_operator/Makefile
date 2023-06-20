@@ -13,4 +13,9 @@ nodescript-crd.yaml:
 run:
 	cargo run
 
-.PHONY: docker-build run
+clean:
+	rm -f nodescript-crd.yaml
+
+crd: nodescript-crd.yaml
+
+.PHONY: docker-build run clean crd
