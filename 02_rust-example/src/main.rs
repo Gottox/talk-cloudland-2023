@@ -1,6 +1,6 @@
-use std::{fmt, cmp::Ordering};
+use std::fmt;
 
-#[derive(Eq, PartialEq, PartialOrd)]
+#[derive(Eq, PartialEq)]
 struct Actor {
     name: String,
     year_of_birth: u32,
@@ -21,14 +21,7 @@ impl fmt::Display for Actor {
     }
 }
 
-impl Ord for Actor {
-    fn cmp(&self, other: &Self) -> Ordering {
-        self.year_of_birth.cmp(&other.year_of_birth)
-    }
-}
-
 fn main() {
-
     println!("Incomplete Movie Database (IMDB)");
     println!("-------------------");
 
@@ -50,10 +43,10 @@ fn main() {
     }
     println!("-------------------");
     println!("First actor: {}", tilda_swinton);
-
     println!("-------------------");
     println!("... Sorting ...");
-    actors.sort();
+    actors.sort_by(|a, b| a.year_of_birth.cmp(&b.year_of_birth));
+    println!("-------------------");
 
     for actor in &actors {
         println!("{}", actor);
