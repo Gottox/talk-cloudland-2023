@@ -13,7 +13,7 @@ RUN \
 	cargo install \
 		--path . \
 		--root /app \
-		--bin $OPERATOR \
+		--bin $OPERATOR
 
 FROM gcr.io/distroless/static:nonroot
 
