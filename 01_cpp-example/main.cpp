@@ -28,9 +28,9 @@ class Actor {
         return os;
     }
 
-    friend bool
-    operator<(const Actor &a, const Actor &b) {
-        return a.year_of_birth < b.year_of_birth;
+    int
+    get_year_of_birth() {
+        return year_of_birth;
     }
 };
 
@@ -51,16 +51,18 @@ main() {
     actors.push_back(Actor("Liam Neeson", 1952));
     actors.push_back(Actor("Johnny Depp", 1963));
 
-    Actor *tilda_swinton = &actors[0];
+    Actor &tilda_swinton = actors[0];
     for (Actor actor : actors) {
         cout << actor << endl;
     }
     cout << "-------------------" << endl;
-    cout << "First actor: " << *tilda_swinton << endl;
-
+    cout << "First actor: " << tilda_swinton << endl;
     cout << "-------------------" << endl;
     cout << "... Sorting ..." << endl;
-    sort(actors.begin(), actors.end());
+    sort(actors.begin(), actors.end(), [](Actor &a, Actor &b) {
+        return a.get_year_of_birth() < b.get_year_of_birth();
+    });
+    cout << "-------------------" << endl;
 
     for (Actor actor : actors) {
         cout << actor << endl;
