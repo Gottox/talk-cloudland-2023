@@ -1,4 +1,4 @@
-use std::{collections::BTreeMap, fmt::{Formatter, self, Display}};
+use std::collections::BTreeMap;
 use k8s_openapi::{
     api::{
         apps::v1::{DaemonSet, DaemonSetSpec},
