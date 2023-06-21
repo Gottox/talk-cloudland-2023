@@ -5,7 +5,8 @@
 ######################################################################
 
 CXX=g++
-CFLAGS=-Wall -Wextra -Werror -pedantic -std=c++11 -fsanitize=address
+CFLAGS=-Wall -Wextra -Werror -pedantic -std=c++11
+#CFLAGS += -fsanitize=address
 
 OBJ = main.o 
 
