@@ -57,27 +57,5 @@ async fn reconcile(
     obj: Arc<NodeScript>,
     client: Arc<Client>,
 ) -> Result<Action, Error> {
-    let client = client.as_ref();
-    info!("reconciling {:?}", obj);
-
-    if let Some(_) = obj.meta().deletion_timestamp {
-        info!("deleting {:?}", obj);
-        // Kubernetes will delete the DaemonSet for us as we defined async
-        // owner reference. We're done!
-        return Ok(Action::await_change());
-    }
-
-    let ns = obj.namespace().unwrap();
-    let daemonset_api = Api::<DaemonSet>::namespaced(client.clone(), &ns);
-    let daemonset: DaemonSet = obj.as_ref().into();
-    let name = daemonset.meta().name.clone().unwrap();
-    daemonset_api
-        .patch(
-            &name,
-            &PatchParams::apply("nodescript-operator.aaaaaaaah.dev"),
-            &Patch::Apply(&daemonset),
-        )
-        .await?;
-
-    Ok(Action::await_change())
+    todo!()
 }
